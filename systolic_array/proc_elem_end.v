@@ -1,9 +1,8 @@
-module proc_elem(out_down, out_right, in_top, in_left, 
-                 weight_WE, mux_ctrl, clk, reset);
+module proc_elem_end(out_down, in_top, in_left, weight_WE, 
+                     mux_ctrl, clk, reset);
 //--------------------------
 // PARAMETERS
 parameter DATA_WIDTH = 16;
-//--------------------------
 // INPUTS
 input clk;
 input reset;
@@ -14,7 +13,6 @@ input mux_ctrl;
 //--------------------------
 // OUTPUTS
 output [DATA_WIDTH-1:0] out_down;
-output [DATA_WIDTH-1:0] out_right;
 //--------------------------
 
 // WIRES
@@ -27,7 +25,6 @@ wire [DATA_WIDTH-1:0] mux_out;
 //--------------------------
 // INSTANCES
 reg_file weight(weight_WE, clk, reset, in_top, weight_out);
-flop_reg bias(in_left, clk, reset, out_right);
 adder add(in_top, product, adder_sum);
 multiplier mult(weight_out, in_left, product);
 mux2 m2(adder_sum, in_top, mux_ctrl, mux_out);

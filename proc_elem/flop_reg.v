@@ -1,9 +1,5 @@
-/// Anastasia Frattarole
-/// EE 497
-
-
-module dflip_flop(data_in, clk, reset, data_out);
-
+module flop_reg(data_in, clk, reset, data_out);
+//--------------------------
 // PARAMETERS
 parameter DATA_WIDTH = 16;
 //--------------------------
