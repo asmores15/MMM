@@ -23,10 +23,8 @@ wire [DATA_WIDTH-1:0] product;
 wire [DATA_WIDTH-1:0] adder_sum;
 wire [DATA_WIDTH-1:0] mux_out;
 //--------------------------
-// REGISTERS
-//--------------------------
 // INSTANCES
-reg_file weight(weight_WE, clk, reset, in_top, weight_out);
+register weight(weight_WE, clk, reset, in_top, weight_out);
 flop_reg bias(in_left, clk, reset, out_right);
 adder add(in_top, product, adder_sum);
 multiplier mult(weight_out, in_left, product);
